@@ -15,8 +15,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
-from django.template import Template, Context, add_to_builtins
-#from django.template import add_to_builtins
+from django.template import Template, Context
 from django.conf import settings
 from django.db.models.loading import get_model
 
@@ -34,7 +33,6 @@ from . import utils
 
 __author__ = 'brett@codigious.com'
 
-add_to_builtins("wagtail_commons.core.templatetags.bootstrap_wagtail_tags")
 logger = logging.getLogger('wagtail_commons.core')
 
 
