@@ -118,10 +118,9 @@ class Command(BaseCommand):
     args = '<content directory>'
     help = 'Imports files found in <content directory>/document-library into the Wagtail Document Library'
 
-    option_list = BaseCommand.option_list + (
-        make_option('--content', dest='content_path', type='string', ),
-        make_option('--owner', dest='owner', type='string'),
-    )
+    def add_arguments(self, parser):
+        parser.add_argument('--content', dest='content_path')
+        parser.add_argument('--owner', dest='owner')
 
     def handle(self, *args, **options):
 

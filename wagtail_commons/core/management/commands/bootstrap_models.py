@@ -181,9 +181,9 @@ class Command(BaseCommand):
     args = '<content directory>'
     help = 'Creates models from markdown and yaml files, found in <content directory>/models'
 
-    option_list = BaseCommand.option_list + (
-        make_option('--content', dest='content_path', type='string', ),
-    )
+
+    def add_arguments(self, parser):
+        parser.add_argument('--content', dest='content_path')
 
     def handle(self, *args, **options):
 

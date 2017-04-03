@@ -17,9 +17,8 @@ class Command(BaseCommand):
     args = '<content directory>'
     help = 'Create users, found in <content directory>/users.yml'
 
-    option_list = BaseCommand.option_list + (
-        make_option('--content', dest='content_path', type='string', ),
-    )
+    def add_arguments(self, parser):
+        parser.add_argument('--content', dest='content_path')
 
     def handle(self, *args, **options):
 
