@@ -431,8 +431,8 @@ class Command(BaseCommand):
     help = 'Creates content from markdown and yaml files, found in <content directory>/pages'
 
     def add_arguments(self, parser):
-        parser.add_argument('--content', dest='content_path', type='string')
-        parser.add_argument('--owner', dest='owner', type='string')
+        parser.add_argument('--content', dest='content_path')
+        parser.add_argument('--owner', dest='owner')
         parser.add_argument('--dry', dest='dry', action='store_true')
 
     def handle(self, *args, **options):
