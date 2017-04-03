@@ -375,7 +375,12 @@ class SiteNode:
         for (page, relation_name, objects) in self.deferred_relations:
             field = getattr(page, relation_name)
             field_object = page._meta.get_field(relation_name)
-            model = field_object.model
+
+            if field_object.one_to_many:
+                model = field_object.related_model
+            else:
+                model = field_object.model
+
             model_mapper = relation_mappings.get(model.__name__, {})
 
             related_objects = []
