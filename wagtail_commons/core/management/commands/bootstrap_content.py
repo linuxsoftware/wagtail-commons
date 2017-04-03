@@ -430,17 +430,10 @@ class Command(BaseCommand):
     args = '<content directory>'
     help = 'Creates content from markdown and yaml files, found in <content directory>/pages'
 
-    option_list = BaseCommand.option_list + (
-        make_option('--content', dest='content_path', type='string', ),
-        make_option('--owner', dest='owner', type='string'),
-        make_option('--dry', dest='dry', action='store_true'),
-    )
-
-    option_list = BaseCommand.option_list + (
-        make_option('--content', dest='content_path', type='string', ),
-        make_option('--owner', dest='owner', type='string'),
-        make_option('--dry', dest='dry', action='store_true'),
-    )
+    def add_arguments(self, parser):
+        parser.add_argument('--content', dest='content_path', type='string')
+        parser.add_argument('--owner', dest='owner', type='string')
+        parser.add_argument('--dry', dest='dry', action='store_true')
 
     def handle(self, *args, **options):
 
