@@ -138,7 +138,7 @@ def transformation_for_model_field(model, attr_name, model_mapper):
     if mapped_transformation:
         return transformation_for_name(mapped_transformation)
 
-    (field_object, model, direct, m2m) = model._meta.get_field_by_name(attr_name)
+    field_object = model._meta.get_field(attr_name)
 
     if isinstance(field_object, models.ForeignKey):
         return transformation_for_foreign_key(field_object)

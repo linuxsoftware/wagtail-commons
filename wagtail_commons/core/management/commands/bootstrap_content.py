@@ -228,7 +228,9 @@ class SiteNode:
 
             # This is a relation, they payload (doc) should be a list of related model instances to deserialize
             field = getattr(page, field_name)
-            (field_object, model, direct, m2m) = page._meta.get_field_by_name(field_name)
+            field_object = page._meta.get_field(field_name)
+            model = field_object.model
+            direct = not field_object.auto_created or field_object.concrete
 
             if direct:
                 if isinstance(field_object, models.ForeignKey):
@@ -372,7 +374,7 @@ class SiteNode:
 
         for (page, relation_name, objects) in self.deferred_relations:
             field = getattr(page, relation_name)
-            (field_object, _, _, _) = page._meta.get_field_by_name(relation_name)
+            field_object = page._meta.get_field(relation_name)
             model = field_object.model
             model_mapper = relation_mappings.get(model.__name__, {})
 

@@ -112,7 +112,8 @@ class ModelBuilder(object):
         deferred_objects = []
 
         for field_name, field_value in attrs.items():
-            (field_object, model, direct, m2m) = instance._meta.get_field_by_name(field_name)
+            field_object = instance._meta.get_field(field_name)
+            direct = not field_object.auto_created or field_object.concrete
 
             if direct:
                 if isinstance(field_object, models.ForeignKey):
@@ -126,7 +127,8 @@ class ModelBuilder(object):
         self.instance.save()
 
         for field_name, field_value in attrs.items():
-            (field_object, model, direct, m2m) = instance._meta.get_field_by_name(field_name)
+            field_object = instance._meta.get_field(field_name)
+            direct = not field_object.auto_created or field_object.concrete
 
             if not direct:
                 related_model = field_object.model
