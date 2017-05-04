@@ -21,7 +21,7 @@ from django.db.models.loading import get_model
 
 from wagtail.wagtailcore.models import Site
 from wagtail.wagtailcore.models import Page
-from wagtail.wagtailimages.models import get_image_model
+from wagtail.wagtailimages import get_image_model
 
 try:
     from wagtail.wagtailimages.models import get_upload_to

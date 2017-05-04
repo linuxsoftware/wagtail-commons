@@ -2,7 +2,7 @@ import logging
 from collections import Counter
 from django.conf import settings
 from django.core.files import File
-from wagtail.wagtailimages.models import get_image_model
+from wagtail.wagtailimages import get_image_model
 
 try:
     from wagtail.wagtailimages.models import get_upload_to

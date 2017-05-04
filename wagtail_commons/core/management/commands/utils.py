@@ -13,7 +13,7 @@ import wagtail.wagtailcore.models
 from wagtail.wagtailcore.models import Site, Page
 import wagtail.wagtailimages.models
 
-from wagtail.wagtailimages.models import get_image_model
+from wagtail.wagtailimages import get_image_model
 
 try:
     from wagtail.wagtailimages.models import get_upload_to

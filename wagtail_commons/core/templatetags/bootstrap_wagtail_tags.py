@@ -2,7 +2,7 @@ from django import template
 import datetime
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore.rich_text import LINK_HANDLERS
-from wagtail.wagtailimages.models import get_image_model
+from wagtail.wagtailimages import get_image_model
 
 try:
     from wagtail.wagtailimages.models import get_upload_to
