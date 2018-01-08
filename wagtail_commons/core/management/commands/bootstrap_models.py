@@ -13,7 +13,6 @@ import markdown
 from django.db.models.fields.related import RelatedField
 from django.core.management.base import BaseCommand, CommandError
 from django.db import models
-from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.template import Template, Context
 from django.conf import settings
@@ -22,6 +21,9 @@ from django.db.models.loading import get_model
 from wagtail.wagtailcore.models import Site
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailimages import get_image_model
+
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 try:
     from wagtail.wagtailimages.models import get_upload_to

@@ -16,9 +16,11 @@ import filecmp
 import os
 
 from optparse import make_option
-from django.contrib.auth.models import User
 
 from django.core.management.base import BaseCommand, CommandError
+
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 # <embed alt="urn" embedtype="image" format="right" id="1"/>
 
